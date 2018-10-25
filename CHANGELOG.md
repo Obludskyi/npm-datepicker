@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.10.0"></a>
+# [0.10.0](https://github.com/selvera/npm-datepicker/compare/v0.9.5...v0.10.0) (2018-10-25)
+
+
+### Bug Fixes
+
+* removed old theming file ([baad139](https://github.com/selvera/npm-datepicker/commit/baad139))
+* typo in the README file ([62b896f](https://github.com/selvera/npm-datepicker/commit/62b896f))
+* **README:** moment-timezone package name ([#26](https://github.com/selvera/npm-datepicker/issues/26)) ([39f64de](https://github.com/selvera/npm-datepicker/commit/39f64de))
+
+
+### Features
+
+* add option to create utc dates ([43576e4](https://github.com/selvera/npm-datepicker/commit/43576e4))
+
+
+
 <a name="0.9.5"></a>
 ## [0.9.5](https://github.com/selvera/npm-datepicker/compare/v0.9.4...v0.9.5) (2018-07-02)
 
