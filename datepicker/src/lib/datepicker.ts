@@ -135,6 +135,9 @@ export class MatDatepicker<D> implements OnInit, OnDestroy {
   }
   private _startAt: D | null;
 
+  @Input()
+  color: string;
+
   /** The type of value handled by the calendar. */
   @Input()
   type: MatCalendarType = 'date';
