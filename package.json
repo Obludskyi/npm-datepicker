@@ -1,12 +1,13 @@
 {
   "$schema": "./node_modules/ng-packagr/package.schema.json",
-  "name": "@coachcare/datepicker",
+  "name": "@obludskyi/datepicker",
   "version": "0.10.1",
   "description": "Angular Material Datepicker Fork with Timepicker by CoachCare",
   "keywords": [
     "coachcare",
     "frontend",
-    "datepicker"
+    "datepicker",
+    "obludskyi"
   ],
   "author": "CoachCare.com",
   "homepage": "https://www.coachcare.com",
