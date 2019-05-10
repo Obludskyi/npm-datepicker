@@ -1,6 +1,6 @@
 {
   "name": "@obludskyi/datepicker",
-  "version": "0.10.1",
+  "version": "0.10.2",
   "description": "Angular Material Datepicker with UTC support Fork with Timepicker by CoachCare",
   "keywords": [
     "coachcare",
