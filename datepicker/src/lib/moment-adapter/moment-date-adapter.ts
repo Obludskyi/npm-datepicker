@@ -182,30 +182,25 @@ export class MomentDateAdapter extends DateAdapter<Moment> {
       throw Error(`Invalid date "${date}". Date has to be greater than 0.`);
     }
 
-    let result;
-    if (this.options && this.options.useUtc) {
-      result = moment.utc({ year, month, date, hours, minutes, seconds: 0 }).locale(this.locale);
-    } else {
-      result = moment({ year, month, date, hours, minutes, seconds: 0 }).locale(this.locale);
-    }
+    const result = this._createMoment({ year, month, date, hours, minutes, seconds: 0 }).locale(this.locale);
 
     // If the result isn't valid, the date must have been out of bounds for this month.
     if (!result.isValid()) {
       throw Error(`Invalid date "${date}" for month with index "${month}".`);
     }
 
-    return result.locale(this.locale);
+    return result;
   }
 
   today(): Moment {
-    return moment().locale(this.locale);
+    return this._createMoment().locale(this.locale);
   }
 
   parse(value: any, parseFormat: string | string[]): Moment | null {
     if (parseFormat && value && typeof value === 'string') {
-      return moment(value, parseFormat, this.locale, true);
+      return this._createMoment(value, parseFormat, this.locale);
     }
-    return value ? moment(value).locale(this.locale) : null;
+    return value ? this._createMoment(value).locale(this.locale) : null;
   }
 
   format(date: Moment, displayFormat: string): string {
@@ -248,16 +243,16 @@ export class MomentDateAdapter extends DateAdapter<Moment> {
   deserialize(value: any): Moment | null {
     let date;
     if (value instanceof Date) {
-      date = moment(value);
+      date = this._createMoment(value).locale(this.locale);
     }
     if (typeof value === 'string') {
       if (!value) {
         return null;
       }
-      date = moment(value, moment.ISO_8601).locale(this.locale);
+      date = this._createMoment(value, moment.ISO_8601).locale(this.locale);
     }
     if (date && this.isValid(date)) {
-      return date;
+      return this._createMoment(date).locale(this.locale);
     }
     return super.deserialize(value);
   }
@@ -272,5 +267,10 @@ export class MomentDateAdapter extends DateAdapter<Moment> {
 
   invalid(): Moment {
     return moment.invalid();
+  }
+
+  /** Creates a Moment instance while respecting the current UTC settings. */
+  private _createMoment(...args: any[]): Moment {
+    return (this.options && this.options.useUtc) ? moment.utc(...args) : moment(...args);
   }
 }
