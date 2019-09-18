@@ -16,7 +16,7 @@ import { DateAdapter } from './core/index';
 import { createMissingDateImplError } from './datepicker-errors';
 
 export const CLOCK_RADIUS = 50;
-export const CLOCK_INNER_RADIUS = 27.5;
+export const CLOCK_INNER_RADIUS = 18;
 export const CLOCK_OUTER_RADIUS = 41.25;
 export const CLOCK_TICK_RADIUS = 7.0833;
 

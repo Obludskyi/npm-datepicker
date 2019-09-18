@@ -410,10 +410,7 @@ export class MatCalendar<D> implements AfterContentInit, AfterViewChecked, OnCha
 
   _showMinuteView(): void {
     this._hourView = false;
-    setTimeout(() => {
-      this.changeView('clock');
-    },100)
-
+    this.changeView('clock');
   }
 
   _toggleAmPm(am): void {
